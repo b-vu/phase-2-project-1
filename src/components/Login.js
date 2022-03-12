@@ -14,7 +14,7 @@ function Login({ handleSetUser, signUp }) {
   const history = useHistory();
 
   useEffect(() => {
-    fetch("http://localhost:8002/users")
+    fetch("https://guarded-hollows-05759.herokuapp.com/users")
       .then(res => res.json())
       .then(data => {
         setUsers(data);
@@ -35,7 +35,7 @@ function Login({ handleSetUser, signUp }) {
       const checkUsers = users.findIndex(user => user.username === userData.username);
       //checks the registered users to see if their name is available
       if (checkUsers === -1){
-        fetch("http://localhost:8002/users", {
+        fetch("https://guarded-hollows-05759.herokuapp.com/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"

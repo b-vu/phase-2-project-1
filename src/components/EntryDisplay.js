@@ -14,7 +14,7 @@ function EntryDisplay({ user, handleSetUser }) {
 
   useEffect(() => {
     const userStatus = JSON.parse(localStorage.getItem("journalUser"));
-    fetch("http://localhost:8002/journals")
+    fetch("https://guarded-hollows-05759.herokuapp.com/journals")
       .then(res => res.json())
       .then(data => {
         setEntries(data)

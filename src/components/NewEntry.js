@@ -23,7 +23,7 @@ function NewEntry({ user, handleSetUser }) {
         handleSetUser(userStatus);
 
         if (match.path === "/Entry/:id/Edit") {
-            fetch(`http://localhost:8002/journals/${id}`)
+            fetch(`https://guarded-hollows-05759.herokuapp.com/journals/${id}`)
                 .then(res => res.json())
                 .then(data => setFormData(data));
         } else {
@@ -67,7 +67,7 @@ function NewEntry({ user, handleSetUser }) {
                     .then(r => r.json())
                     .then(gif => {
                         newEntry.img = gif.data.images.original.url
-                        fetch("http://localhost:8002/journals", {
+                        fetch("https://guarded-hollows-05759.herokuapp.com/journals", {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify({
@@ -79,7 +79,7 @@ function NewEntry({ user, handleSetUser }) {
                             .then(data => history.push("/"));
                     })
             } else {
-                fetch("http://localhost:8002/journals", {
+                fetch("https://guarded-hollows-05759.herokuapp.com/journals", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
@@ -103,7 +103,7 @@ function NewEntry({ user, handleSetUser }) {
             else{
                 realMood = formData.mood;
             }
-            fetch(`http://localhost:8002/journals/${id}`, {
+            fetch(`https://guarded-hollows-05759.herokuapp.com/journals/${id}`, {
                 method: "PATCH",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

@@ -12,7 +12,7 @@ function Entry({ user, handleSetUser }) {
   useEffect(() => {
     window.scrollTo(0, 0);
     const userStatus = JSON.parse(localStorage.getItem("journalUser"));
-    fetch(`http://localhost:8002/journals/${id}`)
+    fetch(`https://guarded-hollows-05759.herokuapp.com/journals/${id}`)
       .then(res => res.json())
       .then(data => {
         setEntry(data);
@@ -21,21 +21,16 @@ function Entry({ user, handleSetUser }) {
   }, [id]);
 
   function handleDelete(e) {
-    fetch(`http://localhost:8002/journals/${id}`, {
+    fetch(`https://guarded-hollows-05759.herokuapp.com/journals/${id}`, {
       method: "DELETE",
     })
       .then((r) => r.json())
       .then(() => history.push("/"));
   }
 
-  const moodList = moodArray.map(mood =>
-    <button id="moodFilter" value={mood}>
-      {mood}
-    </button>);
-
   const handleLikesClick = () => {
     if (user) {
-      fetch(`http://localhost:8002/journals/${entry.id}`, {
+      fetch(`https://guarded-hollows-05759.herokuapp.com/${entry.id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json"

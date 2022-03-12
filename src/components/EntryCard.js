@@ -7,7 +7,7 @@ function EntryCard({ entry, user }) {
 
   const handleLikesClick = () => {
     if(user){
-      fetch(`http://localhost:8002/journals/${entry.id}`, {
+      fetch(`https://guarded-hollows-05759.herokuapp.com/journals/${entry.id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json"
