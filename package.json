@@ -19,11 +19,11 @@
   },
   "scripts": {
     "server": "json-server --watch db.json --port 8002",
-    "start": "concurrently \"react-scripts start\" \"json-server --watch src/db/db.json -- port 8002\"",
+    "start": "concurrently \"react-scripts start\" \"json-server --watch db.json -- port 8002\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "create-db":"node src/db/db.json"
+    "create-db":"node db.json"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.2",
